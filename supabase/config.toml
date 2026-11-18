@@ -1,0 +1,82 @@
+# Supabase Local Development Configuration
+# Run `supabase start` to start local Supabase stack
+
+project_id = "technovation-os"
+
+[api]
+port = 54321
+schemas = ["public", "storage", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+port = 54322
+shadow_port = 54320
+major_version = 15
+
+[studio]
+port = 54323
+enabled = true
+
+[local_smtp]
+enabled = true
+
+[storage]
+file_size_limit = "50MiB"
+
+[auth]
+site_url = "http://localhost:5173"
+additional_redirect_urls = ["http://localhost:5173/**"]
+jwt_expiry = 3600
+enable_signup = true
+refresh_token_reuse_interval = 10
+
+[auth.email]
+enabled = true
+double_confirm_changes = false
+max_frequency = "1m"
+
+[auth.sms]
+enabled = false
+max_frequency = "1m"
+otp_length = 6
+template = "Your OTP is {{ .Code }}"
+
+[auth.external]
+
+[auth.external.google]
+enabled = false
+client_id = ""
+secret = ""
+redirect_uri = ""
+skip_nonce_check = false
+
+[auth.external.github]
+enabled = false
+client_id = ""
+secret = ""
+redirect_uri = ""
+
+[functions]
+[functions.ideate-event]
+verify_jwt = true
+import_map = "./functions/ideate-event/import_map.json"
+
+[functions.generate-proposal]
+verify_jwt = true
+import_map = "./functions/generate-proposal/import_map.json"
+
+[functions.ai-assistant]
+verify_jwt = true
+import_map = "./functions/ai-assistant/import_map.json"
+
+[functions.process-automation]
+verify_jwt = true
+import_map = "./functions/process-automation/import_map.json"
+
+[functions.notify]
+verify_jwt = true
+import_map = "./functions/notify/import_map.json"
+
+# pg_cron configuration for scheduled automation
+# These will be set up via migration 004_pg_cron_jobs.sql
