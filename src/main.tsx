@@ -4,6 +4,18 @@ import { BrowserRouter } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import App from './App'
 import './styles/global.css'
+import { applyTheme } from './store/themeStore'
+
+// Apply saved theme before first paint
+const saved = localStorage.getItem('technovation-theme')
+if (saved) {
+  try {
+    const parsed = JSON.parse(saved)
+    applyTheme(parsed.state?.theme || 'dark')
+  } catch {
+    applyTheme('dark')
+  }
+}
 
 const queryClient = new QueryClient({
   defaultOptions: {

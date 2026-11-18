@@ -38,6 +38,8 @@ const Notifications = lazy(() => import('@/pages/notifications/Notifications'))
 
 const ProfileSettings = lazy(() => import('@/pages/settings/ProfileSettings'))
 const SocietySettings = lazy(() => import('@/pages/settings/SocietySettings'))
+const LetterGenerator = lazy(() => import('@/pages/letters/LetterGenerator'))
+const CertificateGenerator = lazy(() => import('@/pages/certificates/CertificateGenerator'))
 
 function ProtectedRoute({ children, requiredLevel = 10, requiredPermission }: {
   children: React.ReactNode
@@ -296,6 +298,24 @@ export default function App() {
             element={
               <ProtectedRoute requiredLevel={40} requiredPermission={{ resource: 'settings', action: 'update' }}>
                 <SocietySettings />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Letter & Certificate Generators */}
+          <Route
+            path="/letters"
+            element={
+              <ProtectedRoute requiredLevel={10}>
+                <LetterGenerator />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/certificates"
+            element={
+              <ProtectedRoute requiredLevel={10}>
+                <CertificateGenerator />
               </ProtectedRoute>
             }
           />
