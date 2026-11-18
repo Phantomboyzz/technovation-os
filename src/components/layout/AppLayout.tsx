@@ -15,10 +15,10 @@ const NAV_GROUPS = [
   {
     label: 'Overview',
     items: [
-      { path: '/dashboard/president', label: 'Dashboard', icon: Shield, roles: ['president', 'vice_president'] },
-      { path: '/dashboard/hod', label: 'Dashboard', icon: Building2, roles: ['hod'] },
-      { path: '/dashboard/faculty', label: 'Dashboard', icon: ClipboardList, roles: ['faculty'] },
-      { path: '/dashboard/member', label: 'Dashboard', icon: LayoutDashboard, roles: ['member'] },
+      { path: '/dashboard/president', label: 'President Dashboard', icon: Shield, roles: ['president', 'vice_president'] },
+      { path: '/dashboard/hod', label: 'HOD Dashboard', icon: Building2, roles: ['hod'] },
+      { path: '/dashboard/faculty', label: 'Faculty Dashboard', icon: ClipboardList, roles: ['faculty'] },
+      { path: '/dashboard/member', label: 'Member Dashboard', icon: LayoutDashboard, roles: ['member'] },
     ]
   },
   {
@@ -48,9 +48,10 @@ const NAV_GROUPS = [
   {
     label: 'System',
     items: [
-      { path: '/automation', label: 'Automation', icon: Zap, roles: ['president', 'vice_president'] },
+      { path: '/automation', label: 'Automation Rules', icon: Zap, roles: ['president', 'vice_president'] },
+      { path: '/settings/society', label: 'Society Settings', icon: Settings, roles: ['president', 'vice_president'] },
       { path: '/notifications', label: 'Notifications', icon: Bell, roles: ['president', 'vice_president', 'hod', 'faculty', 'member'] },
-      { path: '/settings/profile', label: 'Settings', icon: Settings, roles: ['president', 'vice_president', 'hod', 'faculty', 'member'] },
+      { path: '/settings/profile', label: 'My Profile', icon: Settings, roles: ['president', 'vice_president', 'hod', 'faculty', 'member'] },
     ]
   },
 ]
